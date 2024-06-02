@@ -97,6 +97,7 @@ module VagrantPlugins
       attr_accessor :cpu_topology
       attr_accessor :cpu_affinity
       attr_accessor :shares
+      attr_accessor :shmem
       attr_accessor :features
       attr_accessor :features_hyperv
       attr_accessor :clock_absolute
@@ -329,6 +330,7 @@ module VagrantPlugins
         @tpm_path          = UNSET_VALUE
         @tpm_version       = UNSET_VALUE
 
+        @shmem             = UNSET_VALUE
         @sysinfo           = UNSET_VALUE
 
         @memballoon_enabled = UNSET_VALUE
@@ -527,6 +529,23 @@ module VagrantPlugins
         @cpu_topology[:sockets] = options[:sockets]
         @cpu_topology[:cores] = options[:cores]
         @cpu_topology[:threads] = options[:threads]
+      end
+
+      def shmem(options = {})
+        if options[:name].nil? || options[:type].nil? || options[:size].nil?
+          raise 'SHMEM must have a name, type and size specified'
+        end
+
+        options[:unit] = 'M' if options[:unit].nil?
+
+        if @shmem == UNSET_VALUE
+          @shmem = {}
+        end
+
+        @shmem[:name] = options[:name]
+        @shmem[:type] = options[:type]
+        @shmem[:size] = options[:size].to_i
+        @shmem[:unit] = options[:unit]
       end
 
       def cpuaffinitiy(affinity = {})
