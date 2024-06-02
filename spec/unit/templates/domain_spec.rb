@@ -4,7 +4,6 @@ require_relative '../../spec_helper'
 
 require 'vagrant-libvirt/config'
 require 'vagrant-libvirt/util/erb_template'
-require 'byebug'
 
 describe 'templates/domain' do
   include_context 'unit'
