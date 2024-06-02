@@ -1123,6 +1123,9 @@ module VagrantPlugins
         # PCI device passthrough
         @pcis = [] if @pcis == UNSET_VALUE
 
+	# Shared memory
+	@shmems = [] if @shmems == UNSET_VALUE
+
         # Random number generator passthrough
         @rng = {} if @rng == UNSET_VALUE
 
