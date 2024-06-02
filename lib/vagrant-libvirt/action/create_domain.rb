@@ -375,6 +375,10 @@ module VagrantPlugins
             env[:ui].info(" -- PCI passthrough:   #{pci[:domain]}:#{pci[:bus]}:#{pci[:slot]}.#{pci[:function]}")
           end
 
+          @shmems.each do |shmem|
+            env[:ui].info(" -- Shared memory device:   name=#{shmem[:name]}, type=#{shmem[:type]}, unit=#{shmem[:unit]}, size=#{shmem[:size]}")
+          end
+
           unless @rng[:model].nil?
             env[:ui].info(" -- RNG device model:  #{@rng[:model]}")
           end
