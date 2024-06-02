@@ -174,7 +174,7 @@
     </controller>
   <shmem name='my_shmem0'>
     <model type='ivshmem-plain'/>
-    <size unit='M'>12</size>
+    <size unit='M'>16</size>
   </shmem>
   </devices>
   <qemu:commandline>
