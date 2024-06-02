@@ -388,10 +388,10 @@
     <memballoon model='none'/>
   <%- end -%>
 <%- end -%>
-<%- if @shmem -%>
-  <shmem name='<%= @shmem[:name] %>'>
-    <model type='<%= @shmem[:type] %>'/>
-    <size unit='<%= @shmem[:unit] %>'><%= @shmem[:size] %></size>
+<%- @shmems.each do |shmem| -%>
+  <shmem name='<%= shmem[:name] %>'>
+    <model type='<%= shmem[:type] %>'/>
+    <size unit='<%= shmem[:unit] %>'><%= shmem[:size] %></size>
   </shmem>
 <%- end -%>
   </devices>

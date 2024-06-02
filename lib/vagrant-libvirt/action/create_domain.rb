@@ -121,6 +121,9 @@ module VagrantPlugins
           # PCI device passthrough
           @pcis = config.pcis
 
+          # Shared memory
+          @shmems = config.shmems
+
           # Watchdog device
           @watchdog_dev = config.watchdog_dev
 
